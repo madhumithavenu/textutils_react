@@ -22,11 +22,14 @@ function TextForm(props) {
     }
     function handleCopy(){
         let text = document.getElementById("myBox");
-        text.ariaSelected();
+        text.select();
         text.setSelectionRange(0, 9999);
         navigator.clipboard.writeText(text.value);
     }
-    
+    function handleExtraSpaces(){
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
+    }
 
   return (
     <>
@@ -41,7 +44,7 @@ function TextForm(props) {
         <button className='btn btn-primary mx-2' onClick={handleLoClick}>Convert to Lowercase</button>
         <button className='btn btn-primary mx-2' onClick={handleClearText}>Clear Text</button>
         <button className='btn btn-primary mx-2' onClick={handleCopy}>Copy Text</button>
-        
+        <button className='btn btn-primary mx-2' onClick={handleExtraSpaces}>Clear Extra Spaces</button>
         </div>
         <div className='container my-3'>
             <h1>Your Text Summary</h1>

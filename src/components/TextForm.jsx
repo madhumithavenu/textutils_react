@@ -6,10 +6,12 @@ function TextForm(props) {
     const [text, setText] = useState('Enter Text Here');
 
     function handleUpClick(){
-        console.log("On up Click");
+        let newText = text.toUpperCase();
+        setText(newText);
     }
-    function handleOnChange(){
+    function handleOnChange(event){
         console.log("on change");
+        setText(event.target.value);
     }
 
   return (
@@ -20,7 +22,7 @@ function TextForm(props) {
         className='form-control' id='myBox' rows="8" >
         </textarea>
         </div>
-        <button className='btn btn-primary'>Convert to Uppercase</button>
+        <button className='btn btn-primary' onClick={handleUpClick}>Convert to Uppercase</button>
         </>
   )
 }

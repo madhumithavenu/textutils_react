@@ -13,6 +13,10 @@ function TextForm(props) {
         console.log("on change");
         setText(event.target.value);
     }
+    function handleLoClick(){
+        let newText = text.toLowerCase();
+        setText(newText);
+    }
 
   return (
     <>
@@ -23,7 +27,8 @@ function TextForm(props) {
         className='form-control' id='myBox' rows="8" >
         </textarea>
         </div>
-        <button className='btn btn-primary' onClick={handleUpClick}>Convert to Uppercase</button>
+        <button className='btn btn-primary mx-2' onClick={handleUpClick}>Convert to Uppercase</button>
+        <button className='btn btn-primary mx-2' onClick={handleLoClick}>Convert to Lowercase</button>
         </div>
         <div className='container my-3'>
             <h1>Your Text Summary</h1>

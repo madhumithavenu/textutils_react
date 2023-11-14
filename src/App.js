@@ -4,7 +4,7 @@ import About from './components/About.jsx';
 import Alert from './components/Alert.jsx';
 import Navbar from './components/Navbar.jsx'
 import TextForm from './components/TextForm.jsx';
-// import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -57,15 +57,17 @@ function App() {
     <>
       <Navbar title="textUtils" about="About Text Utilities" darkMode={state.darkMode} toggleMode={toggleMode}/>
       <Alert alert={state.alert} />
-      <div className='container my-3' >
+      {/* <div className='container my-3' >
       <TextForm  heading="Enter the text to analyze" darkMode={state.darkMode} showAlert={showAlert}/>
-      </div>
-      {/* <Routes>
+      </div> */}
+      <BrowserRouter>
+      <Routes>
 
           <Route path='/' element={<TextForm heading="Enter the text to analyze below" showAlert={showAlert} />} />
           <Route path='/about' element={<About darkMode={state.darkMode} />} />
 
-        </Routes> */}
+        </Routes>
+        </BrowserRouter>
     </>
   );
 }
